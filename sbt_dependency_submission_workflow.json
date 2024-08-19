@@ -1,0 +1,49 @@
+{
+  "version": 0,
+  "job": {
+    "correlator": "",
+    "id": ""
+  },
+  "sha": "",
+  "ref": "",
+  "detector": {
+    "name": "sbt-github-dependency-submission",
+    "url": "https://github.com/scalacenter/sbt-dependency-submission",
+    "version": "3.1.0"
+  },
+  "metadata": {},
+  "manifests": {
+    "com.example:dependency-problem-sscce_3:0.1.0-SNAPSHOT": {
+      "name": "com.example:dependency-problem-sscce_3:0.1.0-SNAPSHOT",
+      "file": {
+        "source_location": "build.sbt"
+      },
+      "metadata": {
+        "baseDirectory": "/Users/thalia_silver/code/dependency-problem-sscce"
+      },
+      "resolved": {
+        "org.scala-lang:scala3-library_3:3.4.2": {
+          "package_url": "pkg:maven/org.scala-lang/scala3-library_3@3.4.2",
+          "metadata": {
+            "config": "compile"
+          },
+          "relationship": "direct",
+          "scope": "runtime",
+          "dependencies": [
+            "org.scala-lang:scala-library:2.13.12"
+          ]
+        },
+        "org.scala-lang:scala-library:2.13.12": {
+          "package_url": "pkg:maven/org.scala-lang/scala-library@2.13.12",
+          "metadata": {
+            "config": "compile"
+          },
+          "relationship": "indirect",
+          "scope": "runtime",
+          "dependencies": []
+        }
+      }
+    }
+  },
+  "scanned": "2024-08-19T14:38:55.028734Z"
+}
