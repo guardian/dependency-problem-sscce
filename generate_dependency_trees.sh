@@ -2,13 +2,12 @@
 
 set -e
 
-SBT_DEPENDENCY_SUBMISSION_OUTPUT=$(sbt githubGenerateSnapshot)
+SBT_DEPENDENCY_SUBMISSION_OUTPUT=$(sbt "githubGenerateSnapshot {\"ignoredConfigs\":[\"scala-doc-tool\",\"scala-tool\",\"test\"]}")
 LINE_WITH_FILE=$(echo "$SBT_DEPENDENCY_SUBMISSION_OUTPUT" | grep 'Dependency snapshot written to')
 FILENAME=${LINE_WITH_FILE//"[info] Dependency snapshot written to "/""}
 jq . "$FILENAME" > sbt_dependency_submission_workflow.json
 echo "Created sbt_dependency_submission_workflow.json"
 
-SBT_DEPENDENCY_TREE_OUTPUT=$(sbt dependencyTree)
 DEPENDENCY_TREE_OUTPUT=$(sbt dependencyTree)
 SEARCH_STRING="set current project to dependency-problem-sscce"
 # Use awk to drop lines up to and including the first line that contains the search string
